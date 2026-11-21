@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Night Shift at the Archive — a stealth game</title>
+<style>
+  html, body {
+    margin: 0;
+    padding: 0;
+    background: #0a0c14;
+    min-height: 100%;
+  }
+  body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: Georgia, serif;
+    color: #dfe3f2;
+  }
+  #game {
+    display: block;
+    width: 1280px;
+    height: 736px;
+    max-width: 100vw;
+    background: #12141f;
+    image-rendering: auto;
+  }
+  .help {
+    margin-top: 10px;
+    font-size: 13px;
+    color: #8a90a8;
+    font-family: sans-serif;
+  }
+  .help b { color: #d8c98a; }
+</style>
+</head>
+<body>
+<canvas id="game" width="1280" height="736"></canvas>
+<p class="help"><b>WASD / arrows</b> move &nbsp;·&nbsp; <b>Shift</b> sneak &nbsp;·&nbsp; <b>E</b> or click toss a coin &nbsp;·&nbsp; <b>P</b> pause &nbsp;·&nbsp; <b>R</b> restart</p>
+<script>
+  // A tiny error hook for automated smoke tests: records page errors where
+  // a test harness can read them. It loads nothing and changes no gameplay.
+  window.__pageErrors = [];
+  window.addEventListener('error', (e) => window.__pageErrors.push(String(e.message)));
+  window.addEventListener('unhandledrejection', (e) => window.__pageErrors.push('rejection: ' + String(e.reason)));
+</script>
+<script type="module" src="./src/main.js"></script>
+</body>
+</html>
